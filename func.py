@@ -66,11 +66,21 @@ def create_data_dict(user_id):
 def get_row_data(urls):
     row_data = {}
     for url in urls:
+        print(f'Пытаюсь получить данные с URL: {url}')
+
         html = requests.get(urls[url]).text
+        print(f'должен был получить HTML Вот его часть {html[:10]}')
+
         soup = BeautifulSoup(html, features="html.parser")
+        print(f'должен был получить soup Вот его часть {soup[:10]}')
+
         articles = soup.find_all('article', class_='post')
+        print(f'должен был получить artilles Вот первая из них {articles[0]}')
+
+
         data = []
         for i in articles:
+            print(f'внутри первой статьи {i}')
             try:
                 href = i.find('a').get('href')
             except:
@@ -83,11 +93,11 @@ def get_row_data(urls):
                     continue
             except:
                 continue
+            print(description, title, href, item_id)
             data.append((description, title, href, item_id))
-
+            print(f'длинна списка data {len(data)}')
             if len(data) == 10:
                 break
-        print(data)
         row_data[url] = data
 
     return row_data
