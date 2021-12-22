@@ -75,7 +75,7 @@ def get_row_data(urls):
         print(f'должен был получить soup Вот его часть {str(soup)[:10]}')
 
         articles = soup.find_all('article', class_='post')
-        print(f'должен был получить artilles Вот первая из них {articles[0]}')
+        print(f'должен был получить artilles Вот первая из них {articles}')
 
 
         data = []
