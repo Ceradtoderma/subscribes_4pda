@@ -87,6 +87,7 @@ def get_row_data(urls):
 
             if len(data) == 10:
                 break
+        print(data)
         row_data[url] = data
 
     return row_data
