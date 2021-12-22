@@ -116,6 +116,7 @@ def select(prev_item, data):
 
 
 def get_last_items(row_data):
+    print(row_data)
     last_items = {}
     for i in row_data:
         last_items[i] = row_data[i][0][3]
