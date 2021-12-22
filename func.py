@@ -72,7 +72,7 @@ def get_row_data(urls):
         print(f'должен был получить HTML Вот его часть {html[:10]}')
 
         soup = BeautifulSoup(html, features="html.parser")
-        print(f'должен был получить soup Вот его часть {soup[:10]}')
+        print(f'должен был получить soup Вот его часть {str(soup)[:10]}')
 
         articles = soup.find_all('article', class_='post')
         print(f'должен был получить artilles Вот первая из них {articles[0]}')
